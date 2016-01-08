@@ -10,6 +10,7 @@
     <div class="container">
       <div class="header clearfix">
         <h3 class="text-muted">myTodos</h3>
+        {{> loginButtons}}
       </div>
 
       <div class="row marketing">
@@ -17,7 +18,7 @@
             {{> main}}
         </div>
       </div>
-
+      
       <footer class="footer">
         <p>&copy; 2015 myTodos, Inc.</p>
       </footer>
@@ -28,16 +29,20 @@
 
 <!-- Main Template -->
 <template name="main">
+  {{#if currentUser}}
    <form action="" class="new-todo">
        <div class="form-group">
            <input type="text" name="todoText" class="form-control" placeholder="Type a todo...">
        </div>
    </form>
+   {{/if}}
     <ul class="">
         {{#each todos}}
             <li class="{{#if checked}}checked{{/if}}"> 
-               <button class="delete-todo">&times;</button>
-                <input type="checkbox" checked="{{checked}}" class="toggle-checked">
+              {{#if currentUser}}
+                    <button class="delete-todo">&times;</button>
+                    <input type="checkbox" checked="{{checked}}" class="toggle-checked">
+               {{/if}}
                <span class="text">
                     {{text}}
                 </span>
