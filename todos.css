@@ -50,6 +50,9 @@ li.checked .text {
     text-decoration: line-through;
 }
 
+span.login-button-right{
+    float: right;
+}
 .delete-todo {
     float: right;
     font-weight: bold;

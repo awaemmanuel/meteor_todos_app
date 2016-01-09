@@ -10,7 +10,9 @@
     <div class="container">
       <div class="header clearfix">
         <h3 class="text-muted">myTodos</h3>
-        {{> loginButtons}}
+        <span class="login-button-right">
+            {{> loginButtons}}
+        </span>
       </div>
 
       <div class="row marketing">
@@ -20,7 +22,7 @@
       </div>
       
       <footer class="footer">
-        <p>&copy; 2015 myTodos, Inc.</p>
+        <p>&copy; 2015 myTodos, AceOneWorld Inc.</p>
       </footer>
 
     </div> <!-- /container -->
@@ -42,11 +44,17 @@
               {{#if currentUser}}
                     <button class="delete-todo">&times;</button>
                     <input type="checkbox" checked="{{checked}}" class="toggle-checked">
-               {{/if}}
-               <span class="text">
+                    <span class="text">
                     {{text}}
-                </span>
+                    </span>
+               {{else}}
+               <span class="text">
+                    {{text}} - Created by: {{username}}
+               </span>
+            {{/if}}
             </li>
+        {{else}}
+             <p>There are no todos</p>
         {{/each}}
     </ul>
 </template>
